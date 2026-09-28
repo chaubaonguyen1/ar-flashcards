@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AR Flashcards · Print</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 24px; color: #111; background: #fff; }
+      h1 { font-size: 22px; margin: 0 0 4px; }
+      p { margin: 0 0 20px; color: #555; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+      figure { margin: 0; text-align: center; break-inside: avoid; }
+      img { width: 100%; max-width: 280px; image-rendering: pixelated; }
+      figcaption { font-size: 13px; color: #777; }
+      @media print { p, button { display: none; } body { margin: 0; } }
+    </style>
+  </head>
+  <body>
+    <h1>AR Flashcards: printable cards</h1>
+    <p>Print this page (or open it on a second screen), then scan the cards with the app. Keep the black border visible and the card flat.</p>
+    <button onclick="print()">🖨 Print</button>
+    <div class="grid" style="margin-top: 20px">
+      <figure><img src="/markers/apple.png" alt="Card 1" /><figcaption>Card 1</figcaption></figure>
+      <figure><img src="/markers/tree.png" alt="Card 2" /><figcaption>Card 2</figcaption></figure>
+      <figure><img src="/markers/house.png" alt="Card 3" /><figcaption>Card 3</figcaption></figure>
+      <figure><img src="/markers/car.png" alt="Card 4" /><figcaption>Card 4</figcaption></figure>
+      <figure><img src="/markers/fish.png" alt="Card 5" /><figcaption>Card 5</figcaption></figure>
+      <figure><img src="/markers/sun.png" alt="Card 6" /><figcaption>Card 6</figcaption></figure>
+    </div>
+  </body>
+</html>

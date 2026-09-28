@@ -1,0 +1,28 @@
+{
+  "name": "ar-flashcards",
+  "private": true,
+  "version": "0.1.0",
+  "description": "WebAR vocabulary flashcards: scan a printed card, see the 3D object, learn the English word",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev -w @flashcards/server",
+    "dev:web": "npm run dev -w @flashcards/web",
+    "build": "npm run build -w @flashcards/web",
+    "typecheck": "tsc -p packages/shared && tsc -p apps/server && tsc -p apps/web",
+    "test": "vitest run",
+    "markers": "python tools/make_markers.py"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@^4.50.0",
+    "@ar-js-org/ar.js": {
+      "three": "^0.186.0"
+    }
+  }
+}

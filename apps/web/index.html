@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#101426" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
+    <title>AR Flashcards</title>
+  </head>
+  <body>
+    <canvas id="ar-canvas"></canvas>
+
+    <section id="start" class="panel screen">
+      <h1>AR <span>Flashcards</span></h1>
+      <p class="muted">Scan a card, see it in 3D, learn the English word.</p>
+      <label>
+        Your name
+        <input id="player-name" maxlength="32" autocomplete="nickname" placeholder="e.g. Linh" />
+      </label>
+      <button id="btn-start" class="primary big">📷 Start scanning</button>
+      <a class="link" href="/cards.html" target="_blank">🖨 Print the cards</a>
+      <div class="demo">
+        <p class="muted small">No camera or no printer? Try a demo card:</p>
+        <div id="demo-start" class="demo-row"></div>
+      </div>
+      <p id="start-error" class="error" hidden></p>
+    </section>
+
+    <header id="hud" hidden>
+      <div class="pill"><strong id="score">0</strong> pts</div>
+      <div class="pill streak" id="streak" hidden></div>
+      <button id="btn-leaderboard" class="ghost" aria-label="Leaderboard">🏆</button>
+      <button id="btn-exit" class="ghost" aria-label="Exit">✕</button>
+      <ol id="collection" aria-label="Words collected"></ol>
+    </header>
+
+    <footer id="panel" class="panel" hidden>
+      <div id="panel-idle">
+        <p class="hint">Point the camera at a card 📷</p>
+      </div>
+
+      <div id="panel-quiz" hidden>
+        <p class="question">What is this?</p>
+        <div id="choices" class="choices"></div>
+        <div class="timer"><span id="timer-bar"></span></div>
+      </div>
+
+      <div id="panel-word" hidden>
+        <p id="result" class="result"></p>
+        <div class="word-row">
+          <h2 id="word"></h2>
+          <button id="btn-speak" class="ghost" aria-label="Hear the word">🔊</button>
+        </div>
+        <p class="muted"><span id="phonetic"></span> · <span id="meaning"></span></p>
+        <p id="example" class="example"></p>
+      </div>
+
+      <div id="demo-switch" class="demo-row" hidden></div>
+    </footer>
+
+    <dialog id="leaderboard" class="panel">
+      <h2>🏆 Leaderboard</h2>
+      <ol id="leaderboard-list"></ol>
+      <button class="primary" data-close>Close</button>
+    </dialog>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
